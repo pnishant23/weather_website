@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+//This component only deals with routiing of pages
 
-function App() {
+import "./App.css"
+import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom"
+import Weather from "./pages/Weather"
+import UserLoginSignUp from "./pages/UserLoginSignUp"
+import AdminLoginSignUp from "./pages/AdminLoginSignUp"
+import Admin from "./pages/Admin"
+import PageNotFound from "./pages/PageNotFound"
+
+export default function App() {
+    
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+    {/*declaring Routes*/}
+    <Router>
+        <Routes>
+            <Route path='/' element={<Weather/>} />
+            <Route path='/userloginsignup' element={<UserLoginSignUp/>} />
+            <Route path='/adminloginsignup' element={<AdminLoginSignUp/>} />
+            <Route path='/admin' element={<Admin/>} />
+            <Route path='*' element={<PageNotFound/>} />
+        </Routes>
+    </Router>
+    </>
   );
 }
 
-export default App;
