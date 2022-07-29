@@ -41,7 +41,7 @@ export default function AdminGraph (){
 
     return (
         <>
-            <h3 className="text-lg font-bold pb-2 w-full text-start">Visitors</h3>
+            <h3 className="text-lg font-bold pb-2 text-start w-full sm:w-[250px] lg:w-[300px] ">Visitors</h3>
             {/* heading cnt-1 current weather */}
 			<div className="">
                 <Line data={data} options={options}/>

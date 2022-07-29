@@ -21,7 +21,7 @@ ChartJS.register(
     Tooltip,
     Legend,
     )
-
+    
 export default function Graph ({hourly}){
     
      const temp = []
@@ -35,8 +35,6 @@ export default function Graph ({hourly}){
           temp.push(x.temp.toFixed(0))
           const minTemp = Math.min(...temp)
           const maxTemp = Math.max(...temp)
-        ChartJS.defaults.scales.linear.min = minTemp - 5;
-        // ChartJS.defaults.scales.linear.min = minTemp + 5
           time.push(moment(x.dt*1000).format("HH"))
           precipitation.push(x.pop)
           
@@ -67,7 +65,7 @@ export default function Graph ({hourly}){
             {/*heading*/}
             <h3 className="text-lg font-bold pb-2 w-full text-start">Predictions for today</h3>
             {/* heading cnt-1 current weather */}
-			<div className="flex flex-col md:flex-row justify-center items-center md:h-[88%] h-auto w-full">
+			<div className="flex flex-col md:flex-row justify-center items-center md:h-[88%] h-auto w-full  md:w-[400px] lg:w-[500px] cursor-pointer">
                 <Line data={data} options={options}/>
                 {precipitation[0]}
             </div>

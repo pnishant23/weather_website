@@ -125,17 +125,17 @@ export default function Home (){
     return (
         <>
             {/* header */}
-				<header className="max-w-[800px] h-auto flex justify-between px-2 md:px-0 py-2 mx-auto">
-					<h1>Weather Forecast</h1>
+				<header className="max-w-[800px] md:m-4 lg:mx-auto h-auto flex justify-between px-2 md:px-0 py-2 mx-auto font-bold">
+					<h1 style={{'alignSelf':'center'}}>Weather Forecast</h1>
 					{/* search bar */}
-					<form onSubmit={handleSubmit} className="flex justify-between w-1/2">
+					<form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center items-center sm:justify-between w-1/2 cursor-pointer">
 						<input 
 						    type="text" 
 						    placeholder="search..." 
 						    ref={location}
-						    className="w-3/4 p-2 rounded-lg primaryBColor outline-none"
+						    className="w-3/4 p-2 rounded-lg primaryBColor outline-none mb-2 sm:mb-0"
 						/>
-						<div onClick={navigateToLogin}>Login/SignUp</div>
+					{/*	<div onClick={navigateToLogin} style={{'alignSelf':'center'}}>Login/SignUp</div> */}
 					</form>
 				</header>
 			{/*	<div className={display==="open" ? "block absolute bg-gray-100 w-fit h-fit right-8 top-14 shadow-inner rounded-lg secondaryFont" : "hidden absolute bg-gray-100 w-fit h-fit right-8 top-14 shadow-inner rounded-lg secondaryFont"}>
@@ -145,9 +145,9 @@ export default function Home (){
 				    </div>
 				</div> */}
 				{/* Main body */}
-				<main className="max-w-[850px] h-auto grid overflow-hidden md:grid-rows-2 md:grid-cols-2 grid-rows-4 grid-cols-1 md:gap-4 mx-auto px-2 pb-2 md:px-0 secondaryFont">
-				    {/* wrapper-1 */}
-				    <div className="md:h-[300px] w-full sm:w-[300px] md:w-[500px] h-auto flex flex-col justify-center md:block items-center">
+				<main className="max-w-[850px] h-auto grid overflow-hidden md:grid-rows-2 md:grid-cols-2 grid-rows-4 grid-cols-1 md:gap-4 m-4 md:m-4 lg:mx-auto px-2 pb-2 md:px-0 secondaryFont">
+            {/* wrapper-1 */} 
+				    <div className="md:h-[300px] h-auto flex flex-col justify-center md:block items-center">
 				    <Current cityName={cityName} weather={weather}/>
 				    </div>
 				    {/* wrapper-2 */}
@@ -155,11 +155,11 @@ export default function Home (){
 				    <Prediction daily={daily}/>
 				    </div>
 				    {/* wrapper-3 */}
-				    <div class="w-full sm:w-[300px] md:w-[500px] h-fit md:h-auto flex flex-col justify-center md:block items-center">
+				    <div className="w-full sm:w-[300px] md:w-[500px] h-fit md:h-auto flex flex-col justify-center md:block items-center">
 				        <Graph hourly={hourly}/>
 				    </div>
 				    {/* wrapper-4 */}
-				    <div class="flex flex-col md:justify-end justify-center md:items-end items-center p-2 md:p-0 mt-0">
+				    <div className="flex flex-col md:justify-end justify-center md:items-end items-center p-2 md:p-0 mt-0">
 				    <Tomorrow daily={daily} cityName={cityName}/>
 				    </div>
 				</main>
